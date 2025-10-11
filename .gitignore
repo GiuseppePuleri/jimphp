@@ -3,6 +3,7 @@
 /build/
 /bin/
 /*.o
+*.swp
 
 # CMake generated files
 CMakeCache.txt
