@@ -13,7 +13,7 @@ using namespace std;
 
 int main(){
 
-    std::string php_code = "1 + 1 + 3";
+    std::string php_code = "$hello_user = 5.5 + 10 * (3 - 1);  // test! @#|_\\\"";
    
     //Instantiate Lexer
     Lexer lexer(php_code);
@@ -27,7 +27,7 @@ int main(){
     // Stampiamo i token
     cout << "Tokens:" << endl;
     for (const auto& t : tokens) {
-        cout << "[" << t.type << ": " << t.value << "]" << endl;
+        cout << "" << t.type << ": " << t.value << "" << endl;
     }
 
     /*
