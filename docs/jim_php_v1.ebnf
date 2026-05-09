@@ -1,0 +1,38 @@
+```
+(* Jim PHP v1 Grammar *)
+(*
+    Features:
+        - Variables
+        - Integers and floats
+        - Arithmetic operators
+        - Assignment
+        - echo statement
+*)
+
+(* A program is a sequence of statements *)
+program ::= statement* ;
+
+(* In version 1, there are only two types of statements: assignment and echo *)
+(* Every statement must terminate with ";" as specified in the PHP documentation *)
+statement ::= assignment ";"
+            | echoStatement ";" ;
+
+(* An assignment must follow this structure, e.g.: "$hello = expression" *)
+assignment ::= VARIABLE "=" expression ;
+
+(* Note: "echo" must be recognized as a keyword by the Lexer *)
+echoStatement ::= "echo" expression ;
+
+(* Define expression rules and operator precedence *)
+expression ::= term ( ("+" | "-") term )* ;
+
+term ::= factor ( ("*" | "/") factor )* ;
+(* This allows expressions such as: "5 + 10 * (3 - 1)" *)
+
+(* Define "factor" as the atomic elements of arithmetic expressions *)
+(* A factor can be a number, a variable, or an expression enclosed in parentheses *)
+factor ::= NUMBER
+         | VARIABLE
+         | "(" expression ")" ;
+
+```
